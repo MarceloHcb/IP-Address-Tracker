@@ -5,44 +5,39 @@ const timezone = document.querySelector(".timezone")
 const isp = document.querySelector(".isp")
 const btn = document.querySelector(".btn")
 const input = document.querySelector(".search")
-showMap()
-input.addEventListener("keyup", (input) => {
+
+screen()
+input.addEventListener("keyup", (e) => {
     
     const key = e.which || e.keycode
     const isEnterKeyPressed = key === 13
     if (isEnterKeyPressed) {
-        if(input === ""){
-            alert("Preencha o campo com o IP")
-            return
-        }
-        screen()  
+        screen() 
+        }         
     }
-})
+)
 btn.addEventListener("click", search =>{
     screen()       
        
 })
-
 async function consumindoDados(ipNumber){
-    let url = `https://api.freegeoip.app/json/${ipNumber}?apikey=3bb50190-8fa3-11ec-8355-5ff655258135`
+    let url = `https://geo.ipify.org/api/v2/country,city?apiKey=at_sBpm3Yv60bR0D6kr97pEzdS3rxJSV&ipAddress=${ipNumber}`
     let response = await fetch (url)    
-    return await response.json()   
+   return await response.json()   
+  
 } 
+console.log(consumindoDados())
 
-async function screen(ipNumber){
+async function screen(ipNumber){  
     ipNumber = input.value
     let serv  = await consumindoDados(ipNumber)
     ipAddress.innerHTML = serv.ip
-    locationn.innerHTML = `${serv.country_code} ${serv.zip_code} `
-    timezone.innerHTML = serv.time_zone
-    isp.innerHTML = `"Not Available" `    
-    
-}
-    function showMap(){
-        let lat = 51.505
-        let long = -0.09        
-     let map = L.map('map').setView([lat, long], 13);
-
+    locationn.innerHTML = `${serv.location.city} ${serv.location.country} `
+    timezone.innerHTML = serv.location.timezone
+    isp.innerHTML = serv.isp          
+                
+     let map = L.map('map').setView([serv.location.lat, serv.location.lng], 13);
+     console.log(serv.lat)
      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
          maxZoom: 18,
@@ -51,9 +46,13 @@ async function screen(ipNumber){
          zoomOffset: -1,
          accessToken: 'pk.eyJ1IjoibWFyY2Vsb2hjYiIsImEiOiJja3pxM2dld3IwZzMxMm5yeDZybmVwdmwwIn0.cvflYF7tjYgCGIsfxv_LYw'
      }).addTo(map);
-     var marker = L.marker([lat, long]).addTo(map);
+     var marker = L.marker([serv.location.lat, serv.location.lng]).addTo(map);
           
-    }
+}
+
+
+    
+   
 
     
 
