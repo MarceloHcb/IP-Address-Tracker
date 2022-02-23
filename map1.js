@@ -6,13 +6,13 @@ const isp = document.querySelector(".isp")
 const btn = document.querySelector(".btn")
 const input = document.querySelector(".search")
 showMap()
-input.addEventListener("keyup", (e) => {
-    const userName = e.target.value
+input.addEventListener("keyup", (input) => {
+    
     const key = e.which || e.keycode
     const isEnterKeyPressed = key === 13
     if (isEnterKeyPressed) {
-        if(userName.length === 0){
-            alert("Preencha o campo com o nome do usuário do GitHub")
+        if(input === ""){
+            alert("Preencha o campo com o IP")
             return
         }
         screen()  
@@ -26,9 +26,9 @@ btn.addEventListener("click", search =>{
 async function consumindoDados(ipNumber){
     let url = `https://api.freegeoip.app/json/${ipNumber}?apikey=3bb50190-8fa3-11ec-8355-5ff655258135`
     let response = await fetch (url)    
-    return await response.json()
-   
+    return await response.json()   
 } 
+
 async function screen(ipNumber){
     ipNumber = input.value
     let serv  = await consumindoDados(ipNumber)
