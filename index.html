@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="shortcut icon" href="src/images/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+</head>
+
+<body>
+    <header class="top">
+        <h1>IP Address Tracker</h1>
+        <div class="box">
+            <input class="search" type="search" requared placeholder="Search for any IP address or domain">
+            <button class="btn"><img src="src/images/icon-arrow.svg" alt=""></button>
+
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="center">
+                <div>
+                    <h3>IP ADDRESS</h3>
+                    <h2 class="ipAddress"> </h2>
+                </div>
+                <hr>
+                <div>
+                    <h3>LOCATION</h3>
+                    <h2 class="locationn"> </h2>
+                </div>
+                <hr>
+                <div>
+                    <h3>TIMEZONE</h3>
+                    <h2 class="timezone"></h2>
+                </div>
+                <hr>
+                <div>
+                    <h3>ISP</h3>
+                    <h2 class="isp">
+                    </h2>
+                </div>
+
+            </div>
+            <div id="map">
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="map1.js"></script>
+</body>
+
+</html>
