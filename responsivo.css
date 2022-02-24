@@ -59,10 +59,16 @@
 }
 }
 @media(max-width: 380px){
-    .top{       
+    .top{              
         height: 45vh;   
     }
     .center{        
-       height: 60%;       
+       height: 50vh;
+    }
+}
+@media(max-height: 600px){
+    .top{
+    min-height: 55vh; 
+
     }
 }
