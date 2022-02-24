@@ -7,6 +7,47 @@
 }
 @media(max-width: 950px){
     .center{
-        right: 10vh; 
+        right: 8vh;        
+        width: 85%;
     }
+}
+@media(max-width: 950px){
+    .center{
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 45%;
+    top: -15vh;  
+    }
+    .center h3{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    hr{
+        display: none;
+    }
+}
+@media(max-width: 950px){
+    .top{       
+        height: 40vh;   
+    }
+    .center{
+        right: 5vh; 
+        padding-top: 0;
+        margin-top: 0;
+    }
+    .search{
+        width: 40vh;      
+    }    
+}
+@media(max-width: 480px){
+    .center{
+        right: 3vh;
+        font-size: 0.7rem;
+    }
+    .search{
+        width: 25vh; 
+}
 }

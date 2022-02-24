@@ -6,7 +6,6 @@ const isp = document.querySelector(".isp")
 const btn = document.querySelector(".btn")
 const input = document.querySelector(".search")
 
-
 input.addEventListener("keyup", (e) => {    
     const key = e.which || e.keycode
     const isEnterKeyPressed = key === 13
@@ -15,15 +14,14 @@ input.addEventListener("keyup", (e) => {
         }         
     }
 )
-
 btn.addEventListener("click", search =>{   
-    screen()        
+    screen()     
        
 })
 async function consumindoDados(ipNumber){
     let url = `https://geo.ipify.org/api/v2/country,city?apiKey=at_sBpm3Yv60bR0D6kr97pEzdS3rxJSV&ipAddress=${ipNumber}`
     let response = await fetch (url)    
-   return await response.json() 
+    return await response.json() 
   
 } 
 console.log(consumindoDados())
@@ -56,7 +54,5 @@ async function screen(ipNumber){
         shadowAnchor: [4, 62],  // the same for the shadow
         popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
-     var marker = L.marker([serv.location.lat, serv.location.lng], {icon: blackIcon}).addTo(map);
-    
+     var marker = L.marker([serv.location.lat, serv.location.lng], {icon: blackIcon}).addTo(map);    
 }
-screen()
