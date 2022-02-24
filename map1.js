@@ -16,6 +16,7 @@ input.addEventListener("keyup", (e) => {
 )
 btn.addEventListener("click", search => {
     screen() 
+    map.invalidateSize()
 
 })
 async function consumindoDados(ipNumber) {
