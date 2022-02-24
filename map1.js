@@ -6,9 +6,8 @@ const isp = document.querySelector(".isp")
 const btn = document.querySelector(".btn")
 const input = document.querySelector(".search")
 
-screen()
-input.addEventListener("keyup", (e) => {
-    
+
+input.addEventListener("keyup", (e) => {    
     const key = e.which || e.keycode
     const isEnterKeyPressed = key === 13
     if (isEnterKeyPressed) {
@@ -16,19 +15,21 @@ input.addEventListener("keyup", (e) => {
         }         
     }
 )
-btn.addEventListener("click", search =>{
-    screen()       
+
+btn.addEventListener("click", search =>{   
+    screen()        
        
 })
 async function consumindoDados(ipNumber){
     let url = `https://geo.ipify.org/api/v2/country,city?apiKey=at_sBpm3Yv60bR0D6kr97pEzdS3rxJSV&ipAddress=${ipNumber}`
     let response = await fetch (url)    
-   return await response.json()   
+   return await response.json() 
   
 } 
 console.log(consumindoDados())
 
-async function screen(ipNumber){  
+async function screen(ipNumber){
+    
     ipNumber = input.value
     let serv  = await consumindoDados(ipNumber)
     ipAddress.innerHTML = serv.ip
@@ -46,39 +47,16 @@ async function screen(ipNumber){
          zoomOffset: -1,
          accessToken: 'pk.eyJ1IjoibWFyY2Vsb2hjYiIsImEiOiJja3pxM2dld3IwZzMxMm5yeDZybmVwdmwwIn0.cvflYF7tjYgCGIsfxv_LYw'
      }).addTo(map);
-     var marker = L.marker([serv.location.lat, serv.location.lng]).addTo(map);
-          
+     var blackIcon = L.icon({
+        iconUrl: 'src/images/icon-location.svg',      
+    
+        iconSize:     [48, 55], // size of the icon
+        shadowSize:   [50, 64], // size of the shadow
+        iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+        shadowAnchor: [4, 62],  // the same for the shadow
+        popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+     var marker = L.marker([serv.location.lat, serv.location.lng], {icon: blackIcon}).addTo(map);
+    
 }
-
-
-    
-   
-
-    
-
-// map.addControl(new mapboxgl.NavigationControl());
-
-
-// L.marker([51.5, -0.09]).addTo(map)
-//     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-//     .openPopup();
- 
-//     var popup = L.popup()
-//     .setLatLng([51.513, -0.09])
-//     .setContent("I am a standalone popup.")
-//     .openOn(map);
-
-//     var popup = L.popup();
-
-// function onMapClick(e) {
-//     popup
-//         .setLatLng(e.latlng)
-//         .setContent("You clicked the map at " + e.latlng.toString())
-//         .openOn(map);
-// }
-
-// map.on('click', onMapClick);
-
-
-
-
+screen()
