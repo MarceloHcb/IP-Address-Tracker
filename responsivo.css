@@ -1,0 +1,12 @@
+@media(max-width: 1250px){
+    .center{
+        font-size: 0.8rem;
+        height: 17vh;  
+        right: 15vh; 
+    }
+}
+@media(max-width: 950px){
+    .center{
+        right: 10vh; 
+    }
+}
