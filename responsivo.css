@@ -42,12 +42,18 @@
         width: 40vh;      
     }    
 }
+@media(max-width: 620px){
+    .center{
+        width: 80%;
+    }
+}
 @media(max-width: 480px){
     .center{
-        right: 3vh;
+        right: 4vh;
         font-size: 0.7rem;
+        width: 77%;
     }
     .search{
-        width: 25vh; 
+        width: 28vh; 
 }
 }

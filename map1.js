@@ -5,7 +5,6 @@ const timezone = document.querySelector(".timezone")
 const isp = document.querySelector(".isp")
 const btn = document.querySelector(".btn")
 const input = document.querySelector(".search")
-
 input.addEventListener("keyup", (e) => {    
     const key = e.which || e.keycode
     const isEnterKeyPressed = key === 13
@@ -14,9 +13,9 @@ input.addEventListener("keyup", (e) => {
         }         
     }
 )
-btn.addEventListener("click", search =>{   
-    screen()     
-       
+btn.addEventListener("click", search =>{     
+    screen()        
+    
 })
 async function consumindoDados(ipNumber){
     let url = `https://geo.ipify.org/api/v2/country,city?apiKey=at_sBpm3Yv60bR0D6kr97pEzdS3rxJSV&ipAddress=${ipNumber}`
@@ -24,8 +23,6 @@ async function consumindoDados(ipNumber){
     return await response.json() 
   
 } 
-console.log(consumindoDados())
-
 async function screen(ipNumber){
     
     ipNumber = input.value
@@ -36,7 +33,7 @@ async function screen(ipNumber){
     isp.innerHTML = serv.isp          
                 
      let map = L.map('map').setView([serv.location.lat, serv.location.lng], 13);
-     console.log(serv.lat)
+     
      L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
          attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
          maxZoom: 18,
