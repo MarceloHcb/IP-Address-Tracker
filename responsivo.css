@@ -69,6 +69,11 @@
 @media(max-height: 600px){
     .top{
     min-height: 55vh; 
-
     }
+    .center{        
+        height: 60vh;
+     }
+     .search{
+        width: 50vh;      
+    }    
 }
