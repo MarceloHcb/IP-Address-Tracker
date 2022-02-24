@@ -5,16 +5,17 @@ const timezone = document.querySelector(".timezone")
 const isp = document.querySelector(".isp")
 const btn = document.querySelector(".btn")
 const input = document.querySelector(".search")
+
 input.addEventListener("keyup", (e) => {
     const key = e.which || e.keycode
     const isEnterKeyPressed = key === 13
-    if (isEnterKeyPressed) {
-        screen()
+    if (isEnterKeyPressed) {        
+        screen()      
     }
 }
 )
 btn.addEventListener("click", search => {
-    screen()
+    screen() 
 
 })
 async function consumindoDados(ipNumber) {
@@ -51,4 +52,13 @@ async function screen(ipNumber) {
         popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
     var marker = L.marker([serv.location.lat, serv.location.lng], { icon: blackIcon }).addTo(map);
+    var container = L.DomUtil.get('map');
+
+    if(container != null){
+
+    container._leaflet_id = null;
 }
+    map.invalidateSize();
+    
+}
+
