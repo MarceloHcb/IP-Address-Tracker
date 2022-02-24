@@ -49,11 +49,11 @@
 }
 @media(max-width: 480px){
     .center{
-        right: 4vh;
+        right: 3.8vh;
         font-size: 0.7rem;
-        width: 77%;
+        width: 80%;
     }
     .search{
-        width: 28vh; 
+        width: 33vh; 
 }
 }
