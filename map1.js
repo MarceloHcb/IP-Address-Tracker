@@ -10,7 +10,8 @@ input.addEventListener("keyup", (e) => {
     const key = e.which || e.keycode
     const isEnterKeyPressed = key === 13
     if (isEnterKeyPressed) {        
-        screen()      
+        screen()     
+        map.invalidateSize() 
     }
 }
 )
